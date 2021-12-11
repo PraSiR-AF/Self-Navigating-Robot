@@ -7,6 +7,10 @@ Contributors :
 3)	Amanda Walpitage 
 4)	Aagrath Yadav 
 
+## Run Code
+
+Load all the files into the same directory and run main.c to start the program.
+
 ## Introduction
 
 The project entailed developing a robot capable of autonomously navigating a maze using only body mounted sensors. In order to optimise the development process, the project was divided into two main parts: 1) the design and development of a virtual robot with photovoltaic sensors and servo-mounted wheels controlled by an Arduino, and 2) the development of a maze navigating algorithm in C capable of being integrated with the physical robot. 
