@@ -7,13 +7,13 @@ Contributors :
 3)	Amanda Walpitage 
 4)	Aagrath Yadav 
 
-INTRODUCTION
+## Introduction
 
 The project entailed developing a robot capable of autonomously navigating a maze using only body mounted sensors. In order to optimise the development process, the project was divided into two main parts: 1) the design and development of a virtual robot with photovoltaic sensors and servo-mounted wheels controlled by an Arduino, and 2) the development of a maze navigating algorithm in C capable of being integrated with the physical robot. 
 
 The culmination of these two sections is a robot with photovoltaic sensors that detect proximity to a wall, and relay signals to wheels to rotate and propel the robot as necessary to avoid collisions while traversing a maze. The robot also does not require any prior programming of maze routes, nor does it need repeated runs through a maze to learn routes. 
 
-SOFTWARE IMPLEMENTATION
+## Software Implementation
 
 The code uses a right-hand rule maze solving algorithm, which essentially finds a wall in the maze, moves so the right sensors of the robot are tracking that wall, and follows it until it reaches the exit.
 
@@ -58,13 +58,13 @@ Movement Function Snippet :
       Set flag to false
       Return 5
 
-FEATURES AND PROPERTIES
+## Features and Properties
 
 The robot features algorithms for breaking infinite repeating loops, which are especially prevalent on start-up, when the robot may be positioned such that none of its sensors detect any walls, and it would begin to spin. We developed an algorithm that tracks if the most recent movement function call is the same as the one preceding it, and interrupts these repeating movements to move the robot away from the position it was in. This algorithm has also been implemented in a manner which does not interfere with regular functioning, despite the fact that it is common for movement function calls to repeat. 
 
 We needed to create virtual sensors which would accurately move alongside, and retain their orientation and length accordingly. We tested a sample algorithm for x and y coordinates, and collaboratively found how it works, and adapted it for use in sideways facing sensors. The algorithm first uses a rounded coordinate of the robot’s centre to use as a reference, and then adds an offset by multiplying the robot’s width by a trigonometric function of the robot’s angle. This ensures the coordinate is placed exactly on the same part of the robot regardless of its angle. The algorithm then adds a value relating to the length of the sensor, also using a trigonometric function to ensure the orientation of the sensor remains consistent relative to the robot’s angle. 
 
-HARDWARE DESIGN
+## Hardware Design
 
 The robot achieved its final state with incremental improvements in ideas and features. This stage-wise improvement was documented in detail on CMap Tools, a concept-mapping software that helped us to develop and implement our ideas from scratch.
 
@@ -85,16 +85,16 @@ Solderless Breadboard - 300 Tie Points (ZY-60) Australia
 -	Resistors : 1k Ohm MCF 0.25W https://au.element14.com/multicomp/mcf-0-25w-1k/resistor-carbon-film-1k-0-25w-5/dp/9339051
 
 
-FUTURE SCOPE
+## Future Scope
 
 For effective sensing and to expand the sensor range HCSRO4 Ultrasonic Sensor can be used instead of light sensors. An alternative method to traverse the maze would be to mount a HCSRO4 Ultrasonic sensor on a ServoMotor placed facing front of the robot body and to change Servo angle and see if the distance to a particular direction is greater than a certain threshold value identified as the colliding distance and move in that direction. 
 
-BIBLOGRAPHY
+## Bibliography
 
 Turner, Grant, "Simplification of Robotics Through Autonomous Navigation" (2021). Mahurin Honors College Capstone Experience/Thesis Projects. Paper 915.
 https://digitalcommons.wku.edu/stu_hon_theses/915
 
-DETAILED MOVEMENT FUNCTION PSEUDOCODE
+## Detailed Movement Function Pseudocode
 
     Start infinite loop
     Flag = True
